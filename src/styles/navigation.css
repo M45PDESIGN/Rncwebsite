@@ -1,0 +1,99 @@
+@layer components {
+  /* Advanced Glass Navigation */
+  .glass-nav {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    transition: var(--transition-nav);
+  }
+  
+  .nav-logo {
+    font-family: var(--font-family-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: var(--transition-nav);
+    cursor: pointer;
+  }
+  
+  .nav-link {
+    font-family: var(--font-family-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(229, 229, 229, 0.85);
+    position: relative;
+    transition: var(--transition-nav);
+    padding: 0.75rem 0;
+  }
+  
+  .nav-link:hover {
+    color: var(--liquid-gold);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    transform: translateY(-1px);
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--liquid-gold), var(--electric-gold));
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 1px;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mega Menu Animations */
+  .animate-fadeInUp {
+    animation: fadeInUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Navigation Badges */
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--liquid-gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: var(--transition-nav);
+  }
+
+  .nav-badge.new {
+    background: var(--electric-gold);
+    color: var(--midnight-black);
+    border-color: var(--electric-gold);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}

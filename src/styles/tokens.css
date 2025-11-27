@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Ultra-Premium Color System */
+  --midnight-black: #0a0a0a;
+  --liquid-gold: #d4af37;
+  --platinum: #e5e5e5;
+  --obsidian: #1c1c1e;
+  --electric-gold: #ffcc00;
+  --deep-charcoal: #0d0d0f;
+  --warm-gold: #c9a961;
+  --silver-mist: #f8f8f8;
+  --diamond-white: #ffffff;
+  --gold-shadow: rgba(212, 175, 55, 0.4);
+  --midnight-shadow: rgba(10, 10, 10, 0.9);
+  
+  /* Gallery-Specific Colors */
+  --gallery-black: #0a0a0a;
+  --artistic-gold: #d4af37;
+  --gallery-white: #ffffff;
+  --charcoal-matte: #1c1c1e;
+  --gallery-overlay: rgba(212, 175, 55, 0.1);
+  
+  /* Typography Scale */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-display: 'Space Grotesk', 'Inter', sans-serif;
+  
+  /* Spacing Scale (Golden Ratio) */
+  --space-xs: 0.618rem;
+  --space-sm: 1rem;
+  --space-md: 1.618rem;
+  --space-lg: 2.618rem;
+  --space-xl: 4.236rem;
+  --space-2xl: 6.854rem;
+  --space-3xl: 11.090rem;
+  
+  /* Animation Variables */
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-glass: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-gallery: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-nav: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  /* Glass Morphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-blur: blur(8px);
+  
+  /* Shadows */
+  --shadow-luxury: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  --shadow-gold-glow: 0 0 60px rgba(212, 175, 55, 0.6);
+  --shadow-floating: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-diamond: 0 0 100px rgba(255, 255, 255, 0.3);
+  --shadow-gallery: 0 15px 35px -10px rgba(0, 0, 0, 0.9);
+  
+  /* Legacy Variables for Compatibility */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --primary: #d4af37;
+  --primary-foreground: #0a0a0a;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-midnight-black: var(--midnight-black);
+  --color-liquid-gold: var(--liquid-gold);
+  --color-platinum: var(--platinum);
+  --color-obsidian: var(--obsidian);
+  --color-electric-gold: var(--electric-gold);
+  --color-deep-charcoal: var(--deep-charcoal);
+  --color-warm-gold: var(--warm-gold);
+  --color-silver-mist: var(--silver-mist);
+  --color-diamond-white: var(--diamond-white);
+  --color-gallery-black: var(--gallery-black);
+  --color-artistic-gold: var(--artistic-gold);
+  --color-gallery-white: var(--gallery-white);
+  --color-charcoal-matte: var(--charcoal-matte);
+}

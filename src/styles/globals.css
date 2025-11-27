@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Ultra-Premium Color System */
+  --midnight-black: #0a0a0a;
+  --liquid-gold: #d4af37;
+  --platinum: #e5e5e5;
+  --obsidian: #1c1c1e;
+  --electric-gold: #ffcc00;
+  
+  /* Shadcn Variables */
+  --background: 0 0% 4%;
+  --foreground: 0 0% 90%;
+  --card: 240 4% 11%;
+  --card-foreground: 0 0% 90%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 90%;
+  --primary: 46 65% 52%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 240 4% 11%;
+  --secondary-foreground: 0 0% 90%;
+  --muted: 240 4% 11%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 46 65% 52%;
+  --accent-foreground: 0 0% 4%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 90%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 46 65% 52%;
+  --radius: 0.25rem;
+}
+
+@theme {
+  --font-sans: "Inter", "sans-serif";
+  --font-display: "Space Grotesk", "sans-serif";
+  
+  --color-midnight-black: var(--midnight-black);
+  --color-liquid-gold: var(--liquid-gold);
+  --color-electric-gold: var(--electric-gold);
+  --color-platinum: var(--platinum);
+  --color-obsidian: var(--obsidian);
+
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-grain: grain 8s steps(10) infinite;
+
+  @keyframes glitch {
+    2%, 64% { transform: translate(2px,0) skew(0deg); }
+    4%, 60% { transform: translate(-2px,0) skew(0deg); }
+    62% { transform: translate(0,0) skew(5deg); }
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
+  }
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-midnight-black text-platinum antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    background: var(--liquid-gold);
+    color: var(--midnight-black);
+  }
+}
+
+@layer components {
+  /* Minimal Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--midnight-black);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--liquid-gold);
+  }
+}
