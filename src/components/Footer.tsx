@@ -35,8 +35,8 @@ export function Footer({ onNavigate }: FooterProps) {
               <a href="#" className="text-platinum/60 hover:text-liquid-gold transition-colors"><Youtube className="w-5 h-5" /></a>
             </div>
             <div className="text-platinum/60 text-sm leading-relaxed max-w-sm mb-6">
-              <p className="mb-2">Resonance Music & Community is a registered non-profit organization dedicated to supporting underground artists in Austria.</p>
-              <p className="font-mono text-xs text-platinum/40">ZVR-Zahl: 123456789 • Murstraße 75, 6063 Rum</p>
+              <p className="mb-2">Resonance Music & Community is a registered non-profit organization dedicated to supporting artists and musicians in Austria.</p>
+              <p className="font-mono text-xs text-platinum/40">ZVR-Zahl: 1736087764 • Josef-Pöll-Straße 9, 6020 Innsbruck</p>
             </div>
             <div className="text-platinum/40 text-sm leading-relaxed max-w-sm">
               © 2025 Resonance Music & Community. All rights reserved.

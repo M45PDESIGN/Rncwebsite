@@ -21,7 +21,7 @@ export function ImpressumPage() {
             <span className="absolute -bottom-4 left-0 w-1/3 h-1 bg-liquid-gold"></span>
           </h1>
           <p className="text-platinum/60 text-lg md:text-xl max-w-2xl leading-relaxed mt-8">
-            Legal Notice and Organization Information according to Austrian Law.
+            Legal Notice and Organization Information according to Austrian Law (ECG & MedienG).
           </p>
         </motion.div>
       </section>
@@ -53,20 +53,20 @@ export function ImpressumPage() {
                  <div className="flex items-start gap-3 text-platinum/80">
                    <MapPin className="w-5 h-5 text-liquid-gold shrink-0 mt-0.5" />
                    <div>
-                     <p>Murstraße 75</p>
-                     <p>6063 Rum / Innsbruck</p>
+                     <p>Josef-Pöll-Straße 9</p>
+                     <p>6020 Innsbruck</p>
                      <p>Austria</p>
                    </div>
                  </div>
 
                  <div className="flex items-center gap-3 text-platinum/80">
                    <Hash className="w-5 h-5 text-liquid-gold shrink-0" />
-                   <p>ZVR-Zahl: 123456789</p>
+                   <p>ZVR-Zahl: 1736087764</p>
                  </div>
 
                  <div className="flex items-center gap-3 text-platinum/80">
                    <Mail className="w-5 h-5 text-liquid-gold shrink-0" />
-                   <a href="mailto:info@resonance.at" className="hover:text-white transition-colors">info@resonance.at</a>
+                   <a href="mailto:info@rnc4music.com" className="hover:text-white transition-colors">info@rnc4music.com</a>
                  </div>
               </div>
             </div>
@@ -81,19 +81,19 @@ export function ImpressumPage() {
                  <div className="grid grid-cols-[1fr,auto] items-center pb-3 border-b border-white/5 last:border-0 last:pb-0">
                    <div>
                      <span className="block text-xs uppercase tracking-widest text-platinum/40 mb-1">Obmann / Chairperson</span>
-                     <span className="text-white font-bold">Max Mustermann</span>
+                     <span className="text-white font-bold">Christoph Piminger</span>
+                   </div>
+                 </div>
+                 <div className="grid grid-cols-[1fr,auto] items-center pb-3 border-b border-white/5 last:border-0 last:pb-0">
+                   <div>
+                     <span className="block text-xs uppercase tracking-widest text-platinum/40 mb-1">Obmann Stv. & Kassier / Vice Chair & Treasurer</span>
+                     <span className="text-white font-bold">Walter Pinggera</span>
                    </div>
                  </div>
                  <div className="grid grid-cols-[1fr,auto] items-center pb-3 border-b border-white/5 last:border-0 last:pb-0">
                    <div>
                      <span className="block text-xs uppercase tracking-widest text-platinum/40 mb-1">Schriftführer / Secretary</span>
-                     <span className="text-white font-bold">Julia Beispiel</span>
-                   </div>
-                 </div>
-                 <div className="grid grid-cols-[1fr,auto] items-center pb-3 border-b border-white/5 last:border-0 last:pb-0">
-                   <div>
-                     <span className="block text-xs uppercase tracking-widest text-platinum/40 mb-1">Kassier / Treasurer</span>
-                     <span className="text-white font-bold">Felix Muster</span>
+                     <span className="text-white font-bold">Patrik Eberhard</span>
                    </div>
                  </div>
               </div>
@@ -112,10 +112,10 @@ export function ImpressumPage() {
               <div className="text-platinum/80 leading-relaxed space-y-4">
                 <p>
                   <Users className="w-5 h-5 text-liquid-gold inline-block mr-2 mb-1" />
-                  The purpose of the association is the promotion of art and culture, specifically underground music scenes in Austria. We aim to provide a platform for emerging artists, foster community engagement, and organize non-profit cultural events.
+                  The purpose of the association is the promotion and support of artists and musicians in Austria. We aim to provide a platform for emerging talent, foster community engagement, and organize non-profit cultural events.
                 </p>
                 <p className="text-sm text-platinum/60 italic">
-                  Der Verein, dessen Tätigkeit nicht auf Gewinn gerichtet ist, bezweckt die Förderung von Kunst und Kultur, insbesondere der Underground-Musikszene in Österreich.
+                  Der Verein, dessen Tätigkeit nicht auf Gewinn gerichtet ist, bezweckt die Förderung und Unterstützung von Musikern und Künstlern in Österreich.
                 </p>
               </div>
             </div>
@@ -133,7 +133,8 @@ export function ImpressumPage() {
                 <div className="pl-7">
                   <p className="text-white font-bold">Resonance Music & Community</p>
                   <p>Attn: The Board</p>
-                  <p>Murstraße 75, 6063 Rum</p>
+                  <p>Josef-Pöll-Straße 9</p>
+                  <p>6020 Innsbruck, Austria</p>
                 </div>
               </div>
             </div>

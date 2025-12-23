@@ -64,19 +64,24 @@ export function ContactPage() {
                  </div>
 
                  <div className="space-y-2">
-                   <label className="text-xs font-bold uppercase tracking-widest text-platinum/50">Subject</label>
+                   <label className="text-xs font-bold uppercase tracking-widest text-platinum/50">Type</label>
                    <Select>
                     <SelectTrigger className="bg-midnight-black/50 border-white/10 focus:border-liquid-gold text-white">
-                      <SelectValue placeholder="Select a subject" />
+                      <SelectValue placeholder="Are you a..." />
                     </SelectTrigger>
                     <SelectContent className="bg-obsidian border-white/10 text-white">
-                      <SelectItem value="general">General Inquiry</SelectItem>
-                      <SelectItem value="press">Press & Media</SelectItem>
-                      <SelectItem value="partnerships">Partnerships</SelectItem>
-                      <SelectItem value="volunteer">Volunteer</SelectItem>
+                      <SelectItem value="musician">Musician</SelectItem>
+                      <SelectItem value="artist">Visual Artist</SelectItem>
+                      <SelectItem value="venue">Venue/Partner</SelectItem>
+                      <SelectItem value="fan">Community Member</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
+                 </div>
+
+                 <div className="space-y-2">
+                   <label className="text-xs font-bold uppercase tracking-widest text-platinum/50">Subject</label>
+                   <Input placeholder="What is this about?" className="bg-midnight-black/50 border-white/10 focus:border-liquid-gold text-white" />
                  </div>
 
                  <div className="space-y-2">
@@ -111,25 +116,17 @@ export function ContactPage() {
                   <div className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-lg group hover:border-liquid-gold/30 transition-colors">
                     <Mail className="w-5 h-5 text-liquid-gold mt-1" />
                     <div>
-                      <div className="text-sm font-bold text-white mb-1">General Inquiries</div>
-                      <a href="mailto:info@resonance.at" className="text-platinum/60 hover:text-white transition-colors text-sm">info@resonance.at</a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-lg group hover:border-liquid-gold/30 transition-colors">
-                    <Send className="w-5 h-5 text-liquid-gold mt-1" />
-                    <div>
-                      <div className="text-sm font-bold text-white mb-1">Press & Media</div>
-                      <a href="mailto:press@resonance.at" className="text-platinum/60 hover:text-white transition-colors text-sm">press@resonance.at</a>
+                      <div className="text-sm font-bold text-white mb-1">Email Us</div>
+                      <a href="mailto:info@rnc4music.com" className="text-platinum/60 hover:text-white transition-colors text-sm">info@rnc4music.com</a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-lg group hover:border-liquid-gold/30 transition-colors">
                     <MapPin className="w-5 h-5 text-liquid-gold mt-1" />
                     <div>
-                      <div className="text-sm font-bold text-white mb-1">Location</div>
-                      <p className="text-platinum/60 text-sm">Murstraße 75</p>
-                      <p className="text-platinum/60 text-sm">6063 Rum / Innsbruck, Austria</p>
+                      <div className="text-sm font-bold text-white mb-1">Office</div>
+                      <p className="text-platinum/60 text-sm">Josef-Pöll-Straße 9</p>
+                      <p className="text-platinum/60 text-sm">6020 Innsbruck, Austria</p>
                     </div>
                   </div>
                 </div>
@@ -155,7 +152,6 @@ export function ContactPage() {
             {/* Map Placeholder */}
             <div className="aspect-video w-full bg-obsidian border border-white/10 rounded-xl relative overflow-hidden group">
                <div className="absolute inset-0 opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700">
-                  {/* Abstract Map Representation - usually would be Google Maps or similar */}
                   <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1548504778-433b5c65d63f?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center" />
                </div>
                <div className="absolute inset-0 bg-gradient-to-t from-midnight-black via-transparent to-transparent" />
@@ -181,10 +177,10 @@ export function ContactPage() {
           <Accordion type="single" collapsible className="w-full space-y-4">
             <AccordionItem value="item-1" className="border border-white/10 bg-midnight-black/50 px-6 rounded-lg data-[state=open]:border-liquid-gold/50 transition-colors">
               <AccordionTrigger className="text-white hover:text-liquid-gold hover:no-underline font-bold text-left">
-                How can I submit my music?
+                How can I submit my music or art?
               </AccordionTrigger>
               <AccordionContent className="text-platinum/70 leading-relaxed">
-                We love discovering new underground talent. You can submit your demos or press kits directly via email to <span className="text-liquid-gold">music@resonance.at</span>. Please include a streaming link (SoundCloud, Bandcamp) rather than attaching large files.
+                We love discovering new talent. You can submit your portfolio or demos directly via email to <span className="text-liquid-gold">info@rnc4music.com</span>. Please include a streaming link (SoundCloud, website, etc.) rather than attaching large files.
               </AccordionContent>
             </AccordionItem>
 
@@ -193,7 +189,7 @@ export function ContactPage() {
                 Do you accept volunteers?
               </AccordionTrigger>
               <AccordionContent className="text-platinum/70 leading-relaxed">
-                Absolutely. We are always looking for passionate individuals to help with events, content creation, and community management. Select "Volunteer" in the contact form above to get started.
+                Absolutely. We are always looking for passionate individuals to help with events, content creation, and community management. Select "Volunteer" in the subject line above to get started.
               </AccordionContent>
             </AccordionItem>
 
@@ -202,16 +198,7 @@ export function ContactPage() {
                 How do I apply for artist support?
               </AccordionTrigger>
               <AccordionContent className="text-platinum/70 leading-relaxed">
-                Artist support applications open quarterly. We offer grants for recording, equipment rental, and touring. Keep an eye on our "News" section or subscribe to our newsletter for the next application window.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border border-white/10 bg-midnight-black/50 px-6 rounded-lg data-[state=open]:border-liquid-gold/50 transition-colors">
-              <AccordionTrigger className="text-white hover:text-liquid-gold hover:no-underline font-bold text-left">
-                Can I rent your rehearsal space?
-              </AccordionTrigger>
-              <AccordionContent className="text-platinum/70 leading-relaxed">
-                Yes, our rehearsal spaces in Rum are available for booking by members. Membership starts at €10/month and includes 4 hours of studio time. Visit the Membership page for more details.
+                Artist support applications open quarterly. We offer grants for recording, equipment rental, and exhibition space. Keep an eye on our "News" section or subscribe to our newsletter for the next application window.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

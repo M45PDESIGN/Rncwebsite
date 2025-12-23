@@ -62,7 +62,7 @@ export function PrivacyPolicyPage() {
           <div id="introduction" className="space-y-4">
             <h2 className="text-2xl font-display font-bold text-white mb-4">1. Introduction</h2>
             <p className="text-platinum/80 leading-relaxed">
-              Resonance Music & Community ("we," "our," or "us") is a non-profit organization registered in Austria (ZVR-Zahl: 123456789). We operate this website to support underground artists and foster a community of music enthusiasts. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              Resonance Music & Community ("we," "our," or "us") is a non-profit organization registered in Austria (ZVR-Zahl: 1736087764). We operate this website to support artists and foster a community of creative enthusiasts. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
             <p className="text-platinum/80 leading-relaxed">
               We are committed to strict adherence to the General Data Protection Regulation (GDPR) and other applicable privacy laws.
@@ -167,10 +167,10 @@ export function PrivacyPolicyPage() {
               <p className="text-platinum/60 mb-4">Attn: Privacy Officer</p>
               
               <div className="space-y-2 text-sm text-platinum/80">
-                <p>Murstraße 75</p>
-                <p>6063 Rum</p>
+                <p>Josef-Pöll-Straße 9</p>
+                <p>6020 Innsbruck</p>
                 <p>Austria</p>
-                <p className="mt-4 pt-4 border-t border-white/10 text-liquid-gold">privacy@resonance-community.at</p>
+                <p className="mt-4 pt-4 border-t border-white/10 text-liquid-gold">info@rnc4music.com</p>
               </div>
             </div>
           </div>

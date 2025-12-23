@@ -29,7 +29,7 @@ export function DonatePage() {
     if (val >= 50) return "Covers equipment rental for an emerging artist.";
     if (val >= 25) return "Funds one hour of professional mental health support.";
     if (val >= 10) return "Provides a musician with rehearsal space for one session.";
-    return "Every contribution helps keep the underground alive.";
+    return "Every contribution helps keep the music alive.";
   };
 
   return (
@@ -53,11 +53,11 @@ export function DonatePage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-liquid-gold/30 bg-liquid-gold/5 text-liquid-gold text-xs font-bold uppercase tracking-widest mb-6">
               <Heart className="w-3 h-3 fill-current" />
-              Support The Sound
+              Non-Profit Support
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight leading-tight">
-              Keep the Underground <br />
-              <span className="text-liquid-gold">Alive & Loud.</span>
+              Support Creativity <br />
+              <span className="text-liquid-gold">in Austria.</span>
             </h1>
             <p className="text-platinum/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
               Your donation directly funds free rehearsal spaces, professional equipment, and mental health resources for Austria's emerging artists.
@@ -134,9 +134,12 @@ export function DonatePage() {
                     <p className="text-platinum/70 text-sm leading-relaxed mb-4">
                       Every Euro you donate goes directly to our artist support programs. We cover our minimal administrative costs through separate grants and membership fees. Donations are tax-deductible in Austria.
                     </p>
-                    <a href="#" className="text-xs font-bold uppercase tracking-widest text-liquid-gold hover:text-white transition-colors inline-flex items-center gap-1">
-                      View Annual Report <ArrowRight className="w-3 h-3" />
-                    </a>
+                    <div className="text-xs text-platinum/50 uppercase tracking-widest font-bold mb-2">ZVR-Zahl: 1736087764</div>
+                    <div className="flex gap-4">
+                      <a href="mailto:info@rnc4music.com" className="text-xs font-bold uppercase tracking-widest text-liquid-gold hover:text-white transition-colors inline-flex items-center gap-1">
+                         Contact Us
+                      </a>
+                    </div>
                   </div>
                </div>
             </div>
