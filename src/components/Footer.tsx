@@ -71,7 +71,9 @@ export function Footer({ onNavigate }: FooterProps) {
               <li><button onClick={(e) => handleNavClick(e, 'about')} className="hover:text-white transition-colors text-left">Transparency</button></li>
               <li><button onClick={(e) => handleNavClick(e, 'about')} className="hover:text-white transition-colors text-left">Board & Team</button></li>
               <li><button onClick={(e) => handleNavClick(e, 'about')} className="hover:text-white transition-colors text-left">Annual Reports</button></li>
-              <li><button onClick={(e) => handleNavClick(e, 'about')} className="hover:text-white transition-colors text-left">Contact Us</button></li>
+              <li><button onClick={(e) => handleNavClick(e, 'privacy')} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
+              <li><button onClick={(e) => handleNavClick(e, 'impressum')} className="hover:text-white transition-colors text-left">Impressum</button></li>
+              <li><button onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-white transition-colors text-left">Contact Us</button></li>
             </ul>
           </div>
 
@@ -96,6 +98,8 @@ export function Footer({ onNavigate }: FooterProps) {
            <div className="flex gap-6 text-[10px] font-bold uppercase tracking-widest text-platinum/30">
              <a href="#" className="hover:text-platinum/60">Accessibility</a>
              <a href="#" className="hover:text-platinum/60">Cookies</a>
+             <button onClick={(e) => handleNavClick(e, 'privacy')} className="hover:text-platinum/60">Privacy Policy</button>
+             <button onClick={(e) => handleNavClick(e, 'impressum')} className="hover:text-platinum/60">Impressum</button>
              <a href="#" className="hover:text-platinum/60">Terms of Use</a>
            </div>
            <div className="text-[10px] font-bold uppercase tracking-widest text-platinum/30">

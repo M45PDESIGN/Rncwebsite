@@ -34,13 +34,24 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
         
         {/* Left: Logo */}
         <div className="flex items-center gap-8">
-          <button 
+          <motion.button 
             onClick={() => handleNavClick('home')}
-            className="text-2xl font-display font-bold text-white tracking-tight hover:text-liquid-gold transition-colors relative group"
+            className="text-2xl font-display font-bold text-white tracking-tight relative group"
+            whileHover={{ 
+              color: "#d4af37",
+              scale: 1.05,
+              transition: { duration: 0.2 }
+            }}
+            whileTap={{ scale: 0.98 }}
           >
             RESONANCE
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-liquid-gold transition-all group-hover:w-full"></span>
-          </button>
+            <motion.span 
+              className="absolute -bottom-1 left-0 h-0.5 bg-liquid-gold"
+              initial={{ width: 0 }}
+              whileHover={{ width: "100%" }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
           
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-6">
@@ -70,7 +81,14 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
             <Search className="w-5 h-5" />
           </button>
           <div className="hidden sm:block">
-            <GlowButton>Support Us</GlowButton>
+            <motion.button
+              onClick={() => handleNavClick('donate')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-liquid-gold text-midnight-black font-bold uppercase tracking-widest text-xs py-2 px-6 rounded-sm hover:bg-white transition-colors shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+            >
+              Donate
+            </motion.button>
           </div>
           <button 
             className="md:hidden text-platinum"
@@ -110,7 +128,13 @@ export function Navigation({ onNavigate, currentPage }: NavigationProps) {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                 <GlowButton className="w-full bg-liquid-gold text-midnight-black hover:text-midnight-black">Support Us</GlowButton>
+                 <motion.button
+                   onClick={() => handleNavClick('donate')}
+                   whileTap={{ scale: 0.95 }}
+                   className="w-full bg-liquid-gold text-midnight-black font-bold uppercase tracking-widest text-xs py-3 rounded-sm hover:bg-white transition-colors shadow-lg"
+                 >
+                   Donate
+                 </motion.button>
               </motion.div>
             </div>
           </motion.div>

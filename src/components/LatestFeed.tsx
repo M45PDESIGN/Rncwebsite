@@ -1,7 +1,8 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { motion } from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 import { ArrowRight, Clock, MessageSquare, Share2, TrendingUp } from 'lucide-react';
 import { GlitchText } from './ui/GlitchText';
+import { useRef } from 'react';
 
 const container = {
   hidden: { opacity: 0 },
@@ -126,17 +127,41 @@ export function LatestFeed() {
         <motion.div 
           key={article.id} 
           variants={item}
-          className="group py-8 flex flex-col sm:flex-row gap-6 cursor-pointer hover:bg-white/5 px-4 -mx-4 rounded-xl transition-colors relative overflow-hidden"
+          className="group py-8 flex flex-col sm:flex-row gap-6 cursor-pointer px-4 -mx-4 rounded-xl relative overflow-hidden"
+          whileHover={{ 
+            backgroundColor: "rgba(255, 255, 255, 0.03)",
+            transition: { duration: 0.3 }
+          }}
         >
           {/* Subtle highlight on hover */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent pointer-events-none" 
+            initial={{ opacity: 0, x: -100 }}
+            whileHover={{ 
+              opacity: 1, 
+              x: 0,
+              transition: { duration: 0.6, ease: "easeOut" }
+            }}
+          />
 
-          <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 relative bg-obsidian overflow-hidden rounded-sm border border-white/5 group-hover:border-liquid-gold/30 transition-all z-10">
-            <ImageWithFallback
-              src={article.image}
-              alt={article.title}
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-            />
+          <motion.div 
+            className="w-full sm:w-48 h-48 sm:h-32 shrink-0 relative bg-obsidian overflow-hidden rounded-sm border border-white/5 z-10"
+            whileHover={{ 
+              borderColor: "rgba(212, 175, 55, 0.4)",
+              transition: { duration: 0.3 }
+            }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="w-full h-full"
+            >
+              <ImageWithFallback
+                src={article.image}
+                alt={article.title}
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+              />
+            </motion.div>
             {article.score && (
               <div className="absolute top-0 right-0 bg-liquid-gold text-midnight-black text-xs font-bold w-8 h-8 flex items-center justify-center shadow-lg">
                 {article.score}
@@ -151,7 +176,7 @@ export function LatestFeed() {
             <div className="absolute bottom-0 left-0 bg-midnight-black/90 backdrop-blur-sm px-2 py-1 text-[10px] font-bold uppercase text-white border-t border-r border-white/10 group-hover:text-liquid-gold transition-colors">
               {article.category}
             </div>
-          </div>
+          </motion.div>
           
           <div className="flex flex-col flex-1 min-w-0 z-10">
             <div className="flex items-center gap-3 mb-2">
@@ -168,9 +193,16 @@ export function LatestFeed() {
               </span>
             </div>
             
-            <h3 className="text-xl sm:text-2xl font-display font-bold text-platinum mb-2 leading-tight group-hover:text-electric-gold transition-colors truncate sm:whitespace-normal">
+            <motion.h3 
+              className="text-xl sm:text-2xl font-display font-bold text-platinum mb-2 leading-tight truncate sm:whitespace-normal"
+              whileHover={{ 
+                color: "#FFD700",
+                x: 4,
+                transition: { duration: 0.3 }
+              }}
+            >
               {article.title}
-            </h3>
+            </motion.h3>
             
             <p className="text-platinum/60 text-sm leading-relaxed max-w-xl line-clamp-2 mb-4 group-hover:text-platinum/80 transition-colors">
               {article.excerpt}
@@ -178,28 +210,86 @@ export function LatestFeed() {
             
             <div className="flex items-center justify-between mt-auto border-t border-white/5 pt-3">
               <div className="flex items-center gap-4">
-                 <div className="flex items-center gap-1.5 text-xs text-platinum/40 group-hover:text-platinum/60 transition-colors">
+                 <motion.div 
+                   className="flex items-center gap-1.5 text-xs text-platinum/40 cursor-pointer"
+                   whileHover={{ 
+                     color: "rgba(229, 229, 229, 0.8)",
+                     scale: 1.05,
+                     transition: { duration: 0.2 }
+                   }}
+                   whileTap={{ scale: 0.95 }}
+                 >
                    <MessageSquare className="w-3 h-3" />
                    <span>{article.comments}</span>
-                 </div>
-                 <div className="flex items-center gap-1.5 text-xs text-platinum/40 group-hover:text-platinum/60 transition-colors">
+                 </motion.div>
+                 <motion.div 
+                   className="flex items-center gap-1.5 text-xs text-platinum/40 cursor-pointer"
+                   whileHover={{ 
+                     color: "rgba(229, 229, 229, 0.8)",
+                     scale: 1.05,
+                     transition: { duration: 0.2 }
+                   }}
+                   whileTap={{ scale: 0.95 }}
+                 >
                    <Share2 className="w-3 h-3" />
                    <span>Share</span>
-                 </div>
+                 </motion.div>
               </div>
-              <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-platinum/30 group-hover:text-liquid-gold transition-colors">
-                Read Story <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <motion.div 
+                className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-platinum/30"
+                whileHover={{ 
+                  color: "#d4af37",
+                  x: 4,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                Read Story 
+                <motion.div
+                  whileHover={{ x: 3 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ArrowRight className="w-3 h-3" />
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
       ))}
       
       <div className="pt-8 pb-8 text-center">
-        <button className="group px-8 py-3 border border-liquid-gold/30 text-liquid-gold hover:bg-liquid-gold hover:text-midnight-black text-xs font-bold uppercase tracking-widest transition-all rounded-sm flex items-center gap-2 mx-auto">
-          Load More Stories
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </button>
+        <motion.button 
+          className="group px-8 py-3 border border-liquid-gold/30 text-liquid-gold text-xs font-bold uppercase tracking-widest rounded-sm flex items-center gap-2 mx-auto overflow-hidden relative"
+          whileHover={{ 
+            backgroundColor: "#d4af37",
+            color: "#0a0a0a",
+            scale: 1.05,
+            transition: { duration: 0.3 }
+          }}
+          whileTap={{ 
+            scale: 0.98,
+            transition: { duration: 0.1 }
+          }}
+        >
+          <span className="relative z-10">Load More Stories</span>
+          <motion.div
+            whileHover={{ x: 3 }}
+            transition={{ duration: 0.3 }}
+            className="relative z-10"
+          >
+            <ArrowRight className="w-4 h-4" />
+          </motion.div>
+          
+          {/* Ripple effect */}
+          <motion.div
+            className="absolute inset-0 bg-liquid-gold/20"
+            initial={{ scale: 0, opacity: 0 }}
+            whileTap={{ 
+              scale: 2,
+              opacity: [0.5, 0],
+              transition: { duration: 0.5 }
+            }}
+          />
+        </motion.button>
       </div>
     </motion.div>
   );

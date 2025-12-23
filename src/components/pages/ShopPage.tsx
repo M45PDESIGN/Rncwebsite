@@ -3,7 +3,8 @@ import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Sidebar } from '../Sidebar';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogHeader } from '../ui/dialog';
-import { motion } from 'motion/react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { PressableButton } from '../ui/PressableButton';
 
 // This mocks the data you would get from the Shopify Storefront API
 const products = [
@@ -120,17 +121,26 @@ export function ShopPage() {
           {/* Category Tabs */}
           <div className="flex items-center gap-8 overflow-x-auto pb-2 scrollbar-hide">
             {['All', 'Apparel', 'Vinyl', 'Cassette', 'Accessories'].map((cat) => (
-              <button 
+              <motion.button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`text-sm font-bold uppercase tracking-widest whitespace-nowrap pb-2 border-b-2 transition-colors ${
+                className={`text-sm font-bold uppercase tracking-widest whitespace-nowrap pb-2 border-b-2 ${
                   activeCategory === cat 
                     ? 'text-white border-liquid-gold' 
-                    : 'text-platinum/40 border-transparent hover:text-platinum'
+                    : 'text-platinum/40 border-transparent'
                 }`}
+                whileHover={{ 
+                  color: activeCategory === cat ? "#ffffff" : "#e5e5e5",
+                  y: -2,
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ 
+                  scale: 0.95,
+                  transition: { duration: 0.1 }
+                }}
               >
                 {cat}
-              </button>
+              </motion.button>
             ))}
           </div>
         </motion.div>
@@ -188,30 +198,67 @@ export function ShopPage() {
               variants={item}
               className="group cursor-pointer flex flex-col h-full"
               onClick={() => setSelectedProduct(product)}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="relative aspect-[4/5] mb-4 overflow-hidden bg-obsidian border border-white/5">
-                <ImageWithFallback
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                />
+              <motion.div 
+                className="relative aspect-[4/5] mb-4 overflow-hidden bg-obsidian border border-white/5"
+                whileHover={{
+                  borderColor: "rgba(212, 175, 55, 0.3)",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.2)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full h-full"
+                >
+                  <ImageWithFallback
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
+                  />
+                </motion.div>
                 {product.status === "Best Seller" && (
                   <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-midnight-black px-2 py-1 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
                     <Star className="w-3 h-3 fill-midnight-black" />
                     Hot
                   </div>
                 )}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-between">
+                <motion.div 
+                  className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex items-center justify-between"
+                  initial={{ y: "100%" }}
+                  whileHover={{ 
+                    y: 0,
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
+                >
                    <span className="text-white text-[10px] font-bold uppercase tracking-widest">Quick Add</span>
-                   <ShoppingBag className="w-4 h-4 text-white" />
-                </div>
-              </div>
+                   <motion.div
+                     whileHover={{ scale: 1.2, rotate: 5 }}
+                     transition={{ duration: 0.2 }}
+                   >
+                     <ShoppingBag className="w-4 h-4 text-white" />
+                   </motion.div>
+                </motion.div>
+              </motion.div>
               
               <div className="flex flex-col flex-1">
                 <div className="flex justify-between items-start gap-4 mb-2">
-                  <h2 className="text-lg font-display font-bold text-white leading-tight group-hover:underline decoration-liquid-gold underline-offset-4 decoration-2 transition-all">
+                  <motion.h2 
+                    className="text-lg font-display font-bold text-white leading-tight"
+                    whileHover={{
+                      color: "#d4af37",
+                      x: 2,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
                     {product.title}
-                  </h2>
+                  </motion.h2>
                 </div>
                 <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
                    <div className="text-platinum/40 text-[10px] uppercase tracking-widest">{product.category}</div>

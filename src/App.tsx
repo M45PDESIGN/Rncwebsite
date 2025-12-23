@@ -10,6 +10,10 @@ import { VideoPage } from "./components/pages/VideoPage";
 import { AboutPage } from "./components/pages/AboutPage";
 import { BandsPage } from "./components/pages/BandsPage";
 import { ShopPage } from "./components/pages/ShopPage";
+import { PrivacyPolicyPage } from "./components/pages/PrivacyPolicyPage";
+import { ImpressumPage } from "./components/pages/ImpressumPage";
+import { DonatePage } from "./components/pages/DonatePage";
+import { ContactPage } from "./components/pages/ContactPage";
 import { PageTransition } from "./components/PageTransition";
 import { AnimatePresence } from "motion/react";
 import { ScrollProgress } from "./components/ui/ScrollProgress";
@@ -36,6 +40,14 @@ export default function App() {
         return <VideoPage />;
       case 'shop':
         return <ShopPage />;
+      case 'privacy':
+        return <PrivacyPolicyPage />;
+      case 'impressum':
+        return <ImpressumPage />;
+      case 'donate':
+        return <DonatePage />;
+      case 'contact':
+        return <ContactPage />;
       case 'about':
         return <AboutPage />;
       case 'home':

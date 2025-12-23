@@ -94,14 +94,27 @@ export function EventsPage() {
             <motion.div 
               key={event.id} 
               variants={item}
-              className="group flex flex-col sm:flex-row bg-white/5 border border-white/5 hover:border-liquid-gold/30 transition-all cursor-pointer"
+              className="group flex flex-col sm:flex-row bg-white/5 border border-white/5 cursor-pointer"
+              whileHover={{ 
+                borderColor: "rgba(212, 175, 55, 0.4)",
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                y: -4,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.99 }}
             >
               <div className="w-full sm:w-56 aspect-video sm:aspect-auto relative overflow-hidden bg-obsidian">
-                <ImageWithFallback
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                />
+                <motion.div
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full h-full"
+                >
+                  <ImageWithFallback
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
+                  />
+                </motion.div>
                 <div className="absolute top-0 left-0 bg-liquid-gold text-midnight-black px-2 py-1 text-[10px] font-bold uppercase tracking-widest">
                   {event.category}
                 </div>
@@ -109,9 +122,16 @@ export function EventsPage() {
               
               <div className="p-6 flex flex-col justify-center flex-1">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-display font-bold text-white leading-tight group-hover:text-liquid-gold transition-colors max-w-[80%]">
+                  <motion.h3 
+                    className="text-xl font-display font-bold text-white leading-tight max-w-[80%]"
+                    whileHover={{ 
+                      color: "#d4af37",
+                      x: 4,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
                     {event.title}
-                  </h3>
+                  </motion.h3>
                   <span className="text-platinum font-mono text-sm font-bold bg-white/10 px-2 py-1 rounded">{event.price}</span>
                 </div>
                 
@@ -131,10 +151,26 @@ export function EventsPage() {
                 </div>
 
                 <div className="mt-auto pt-4 border-t border-white/10 flex justify-end">
-                  <button className="text-[10px] font-bold uppercase tracking-widest text-white hover:text-liquid-gold flex items-center gap-2 transition-colors">
-                    <Ticket className="w-3 h-3" />
+                  <motion.button 
+                    className="text-[10px] font-bold uppercase tracking-widest text-white flex items-center gap-2"
+                    whileHover={{ 
+                      color: "#d4af37",
+                      x: 4,
+                      transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ 
+                      scale: 0.95,
+                      transition: { duration: 0.1 }
+                    }}
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 5, scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Ticket className="w-3 h-3" />
+                    </motion.div>
                     Get Tickets
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
